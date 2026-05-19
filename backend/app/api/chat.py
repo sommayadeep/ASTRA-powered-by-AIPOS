@@ -4,7 +4,7 @@ from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel
 
-from backend.app.services.ai import generate_chat_reply, stream_chat_reply
+from app.services.ai import generate_chat_reply, stream_chat_reply
 
 router = APIRouter(prefix="/chat", tags=["chat"])
 

@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-from backend.app.services.rag import generate_rag_answer
+from app.services.rag import generate_rag_answer
 
 router = APIRouter(prefix="/rag", tags=["rag"])
 

@@ -2,11 +2,11 @@ from __future__ import annotations
 
 from typing import Any
 
-from backend.app.services.documents import get_documents_overview
-from backend.app.services.memory import list_memories
-from backend.app.services.notes import list_notes
-from backend.app.services.notifications import list_notifications
-from backend.app.services.tasks import list_tasks
+from app.services.documents import get_documents_overview
+from app.services.memory import list_memories
+from app.services.notes import list_notes
+from app.services.notifications import list_notifications
+from app.services.tasks import list_tasks
 
 
 def get_dashboard_analytics(user_id: str = "demo-user") -> dict[str, Any]:

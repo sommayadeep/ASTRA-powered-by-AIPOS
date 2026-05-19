@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
-from backend.app.services.settings import get_settings, upsert_settings
+from app.services.settings import get_settings, upsert_settings
 
 router = APIRouter(prefix="/settings", tags=["settings"])
 

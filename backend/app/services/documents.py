@@ -7,7 +7,7 @@ from typing import Optional
 
 from fastapi import HTTPException, UploadFile
 
-from backend.app.services.rag import index_document_chunks, list_indexed_documents
+from app.services.rag import index_document_chunks, list_indexed_documents
 
 SUPPORTED_TEXT_EXTENSIONS = {".txt", ".md", ".markdown", ".csv"}
 SUPPORTED_BINARY_EXTENSIONS = {".pdf", ".docx"}

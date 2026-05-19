@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
-from backend.app.services.agents import execute_agent_workflow
+from app.services.agents import execute_agent_workflow
 
 router = APIRouter(prefix="/agents", tags=["agents"])
 

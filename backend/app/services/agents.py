@@ -3,9 +3,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-from backend.app.services.ai import generate_chat_reply
-from backend.app.services.memory import add_memory
-from backend.app.services.tasks import create_task as store_task
+from app.services.ai import generate_chat_reply
+from app.services.memory import add_memory
+from app.services.tasks import create_task as store_task
 
 
 @dataclass(frozen=True)

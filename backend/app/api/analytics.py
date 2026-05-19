@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from backend.app.services.analytics import get_dashboard_analytics
+from app.services.analytics import get_dashboard_analytics
 
 router = APIRouter(prefix="/analytics", tags=["analytics"])
 

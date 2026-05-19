@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from backend.app.services.memory import add_memory, list_memories
-from backend.app.services.notes import create_note, list_notes
-from backend.app.services.notifications import create_notification, list_notifications
-from backend.app.services.tasks import create_task, list_tasks
+from app.services.memory import add_memory, list_memories
+from app.services.notes import create_note, list_notes
+from app.services.notifications import create_notification, list_notifications
+from app.services.tasks import create_task, list_tasks
 
 
 def seed_demo_data(user_id: str = "demo-user") -> None:

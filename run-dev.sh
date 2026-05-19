@@ -18,7 +18,7 @@ fi
 export NEXT_PUBLIC_API_URL="${NEXT_PUBLIC_API_URL:-http://localhost:8000}"
 export FRONTEND_ORIGINS="${FRONTEND_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000}"
 export DEMO_SEED="${DEMO_SEED:-1}"
-export PYTHONPATH="$ROOT_DIR"
+export PYTHONPATH="$ROOT_DIR/backend:$ROOT_DIR"
 
 if [[ -f "$ROOT_DIR/.env" ]]; then
   set -a
@@ -46,7 +46,7 @@ trap cleanup EXIT INT TERM
   if [[ "$DEMO_SEED" != "0" ]]; then
     python backend/scripts/seed_demo_data.py
   fi
-  python3 -m uvicorn backend.app.main:app --host 0.0.0.0 --port 8000
+  python3 -m uvicorn app.main:app --host 0.0.0.0 --port 8000
 ) &
 
 (

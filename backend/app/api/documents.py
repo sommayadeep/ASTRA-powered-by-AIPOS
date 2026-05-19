@@ -1,7 +1,7 @@
 from fastapi import APIRouter, BackgroundTasks, File, UploadFile
 from pydantic import BaseModel
 
-from backend.app.services.documents import get_documents_overview, ingest_uploaded_document, index_document_bytes
+from app.services.documents import get_documents_overview, ingest_uploaded_document, index_document_bytes
 
 router = APIRouter(prefix="/documents", tags=["documents"])
 

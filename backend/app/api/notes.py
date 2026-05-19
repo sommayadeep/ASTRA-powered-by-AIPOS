@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel, Field
 from typing import Optional
 
-from backend.app.services.notes import create_note as store_note, list_notes, search_notes
+from app.services.notes import create_note as store_note, list_notes, search_notes
 
 router = APIRouter(prefix="/notes", tags=["notes"])
 

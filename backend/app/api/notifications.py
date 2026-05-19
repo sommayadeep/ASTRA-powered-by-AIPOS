@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
-from backend.app.services.notifications import create_notification, list_notifications, mark_notification_read
+from app.services.notifications import create_notification, list_notifications, mark_notification_read
 
 router = APIRouter(prefix="/notifications", tags=["notifications"])
 

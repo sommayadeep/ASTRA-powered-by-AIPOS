@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel, Field
 from typing import Optional
 
-from backend.app.services.tasks import create_task as store_task, list_tasks as get_tasks, update_task_status
+from app.services.tasks import create_task as store_task, list_tasks as get_tasks, update_task_status
 
 router = APIRouter(prefix="/tasks", tags=["tasks"])
 

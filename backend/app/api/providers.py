@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from backend.app.services.providers import provider_availability, resolve_provider_config
+from app.services.providers import provider_availability, resolve_provider_config
 
 router = APIRouter(prefix="/providers", tags=["providers"])
 

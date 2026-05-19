@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from collections.abc import Iterator
 
-from backend.app.services.rag import query_retrieval_context, sanitize_user_text
-from backend.app.services.providers import build_openai_client, provider_status_message, resolve_first_available_provider
-from backend.app.services.settings import get_settings
-from backend.app.services.security import sanitize_response_text
+from app.services.rag import query_retrieval_context, sanitize_user_text
+from app.services.providers import build_openai_client, provider_status_message, resolve_first_available_provider
+from app.services.settings import get_settings
+from app.services.security import sanitize_response_text
 
 SYSTEM_PROMPT = (
     "You are ASTRA, the intelligent autonomous AI engine powering AIPOS. "

@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
-from backend.app.services.memory import add_memory, get_memory_summary, list_memories
+from app.services.memory import add_memory, get_memory_summary, list_memories
 
 router = APIRouter(prefix="/memory", tags=["memory"])
 
