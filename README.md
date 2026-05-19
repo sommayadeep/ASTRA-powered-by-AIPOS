@@ -60,3 +60,4 @@ AIPOS is a production-grade agentic AI productivity platform for chat, documents
 - Set `DEMO_SEED=0` to start with empty local workspace data.
 # ASTRA-powered-by-AIPOS
 # ASTRA-powered-by-AIPOS
+# ASTRA-powered-by-AIPOS
