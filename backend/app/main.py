@@ -13,6 +13,7 @@ from backend.app.api.documents import router as documents_router
 from backend.app.api.memory import router as memory_router
 from backend.app.api.notes import router as notes_router
 from backend.app.api.notifications import router as notifications_router
+from backend.app.api.providers import router as providers_router
 from backend.app.api.settings import router as settings_router
 from backend.app.api.rag import router as rag_router
 from backend.app.api.tasks import router as tasks_router
@@ -59,6 +60,7 @@ app.include_router(documents_router)
 app.include_router(memory_router)
 app.include_router(notes_router)
 app.include_router(notifications_router)
+app.include_router(providers_router)
 app.include_router(settings_router)
 app.include_router(rag_router)
 app.include_router(tasks_router)

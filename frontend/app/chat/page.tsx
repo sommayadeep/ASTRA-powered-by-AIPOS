@@ -93,15 +93,15 @@ export default function ChatPage() {
 
   return (
     <main className="min-h-screen bg-neutral-950 px-6 py-10 text-neutral-100">
-      <div className="mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl gap-6 lg:grid-cols-[0.32fr_1fr]">
+      <div className="mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl gap-6 lg:grid-cols-[0.28fr_1fr]">
         <aside className="rounded-2xl border border-white/10 bg-neutral-900 p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-neutral-400">ASTRA Threads</p>
+              <p className="text-xs uppercase tracking-[0.35em] text-neutral-400">Threads</p>
               <h2 className="mt-2 text-lg font-semibold">Recent</h2>
             </div>
             <button onClick={newChat} className="rounded-full bg-white px-3 py-1 text-sm text-black">
-              New
+              New Chat
             </button>
           </div>
 

@@ -3,7 +3,7 @@ export default function HomePage() {
     <main className="min-h-screen bg-[#0b0b0b] text-neutral-100">
       <section className="mx-auto flex min-h-screen max-w-5xl flex-col justify-center px-6 py-16">
         <div className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.35em] text-neutral-500">AIPOS powered by ASTRA</p>
+          <p className="text-sm uppercase tracking-[0.35em] text-neutral-500">ASTRA powered by AIPOS</p>
           <h1 className="mt-5 text-5xl font-semibold tracking-tight sm:text-7xl">
             One clean workspace for ASTRA Core, tasks, notes, and documents.
           </h1>

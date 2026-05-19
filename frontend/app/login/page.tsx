@@ -4,7 +4,7 @@ export default function LoginPage() {
       <div className="mx-auto grid min-h-[calc(100vh-5rem)] max-w-6xl gap-8 lg:grid-cols-[1.1fr_0.9fr]">
         <section className="flex flex-col justify-between rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_top_left,_rgba(40,40,40,0.9),_rgba(10,10,10,1)_70%)] p-8 shadow-2xl shadow-black/30">
           <div>
-            <p className="text-sm uppercase tracking-[0.35em] text-neutral-400">AIPOS powered by ASTRA</p>
+            <p className="text-sm uppercase tracking-[0.35em] text-neutral-400">ASTRA powered by AIPOS</p>
             <h1 className="mt-4 max-w-xl text-4xl font-semibold tracking-tight sm:text-6xl">
               Sign in to your ASTRA-powered productivity operating system.
             </h1>

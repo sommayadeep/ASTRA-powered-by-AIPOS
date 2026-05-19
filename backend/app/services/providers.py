@@ -19,8 +19,8 @@ def _clean_provider(value: Optional[str]) -> str:
     return (value or "").strip().lower()
 
 
-def resolve_provider_config() -> ProviderConfig:
-    provider = _clean_provider(os.getenv("AIPOS_AI_PROVIDER"))
+def resolve_provider_config(preferred_provider: Optional[str] = None) -> ProviderConfig:
+    provider = _clean_provider(preferred_provider) or _clean_provider(os.getenv("AIPOS_AI_PROVIDER"))
     deployment = _clean_provider(os.getenv("AIPOS_ENV", "development"))
 
     if not provider:
@@ -63,8 +63,27 @@ def resolve_provider_config() -> ProviderConfig:
     )
 
 
-def build_openai_client() -> Tuple[Optional[OpenAI], ProviderConfig]:
-    config = resolve_provider_config()
+def resolve_first_available_provider(preferred_provider: Optional[str] = None) -> ProviderConfig:
+    preferred = resolve_provider_config(preferred_provider)
+    if preferred.name == "ollama" and preferred.api_key:
+        return preferred
+    if preferred.name != "ollama" and preferred.api_key:
+        return preferred
+
+    for provider_name in ("groq", "openai", "openrouter", "gemini", "ollama"):
+        candidate = resolve_provider_config(provider_name)
+        if candidate.name == "ollama":
+            if candidate.base_url:
+                return candidate
+            continue
+        if candidate.api_key:
+            return candidate
+
+    return preferred
+
+
+def build_openai_client(preferred_provider: Optional[str] = None) -> Tuple[Optional[OpenAI], ProviderConfig]:
+    config = resolve_provider_config(preferred_provider)
     if not config.api_key and config.name != "ollama":
         return None, config
 
@@ -83,3 +102,13 @@ def provider_status_message() -> str:
     if config.name == "openrouter":
         return f"Provider: OpenRouter | Model: {config.model}"
     return f"Provider: OpenAI | Model: {config.model}"
+
+
+def provider_availability() -> dict[str, bool]:
+    return {
+        "ollama": bool(os.getenv("OLLAMA_BASE_URL")),
+        "groq": bool(os.getenv("GROQ_API_KEY")),
+        "gemini": bool(os.getenv("GEMINI_API_KEY")),
+        "openrouter": bool(os.getenv("OPENROUTER_API_KEY")),
+        "openai": bool(os.getenv("OPENAI_API_KEY")),
+    }

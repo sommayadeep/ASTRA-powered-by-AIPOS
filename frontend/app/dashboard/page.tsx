@@ -34,7 +34,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-8">
       <header className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-        <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">AIPOS powered by ASTRA</p>
+        <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">ASTRA powered by AIPOS</p>
         <h1 className="mt-3 text-3xl font-semibold tracking-tight">Your ASTRA workspace</h1>
         <p className="mt-3 max-w-2xl text-neutral-400">
           Jump back into ASTRA Core, upload documents, review tasks, or open notes. Keep the

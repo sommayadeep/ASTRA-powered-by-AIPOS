@@ -20,6 +20,13 @@ export FRONTEND_ORIGINS="${FRONTEND_ORIGINS:-http://localhost:3000,http://127.0.
 export DEMO_SEED="${DEMO_SEED:-1}"
 export PYTHONPATH="$ROOT_DIR"
 
+if [[ -f "$ROOT_DIR/.env" ]]; then
+  set -a
+  # Load project environment variables so backend/frontend processes see the same configuration.
+  source "$ROOT_DIR/.env"
+  set +a
+fi
+
 echo "Starting AIPOS development stack"
 echo "Frontend: $FRONTEND_DIR"
 echo "Backend:  $BACKEND_DIR"

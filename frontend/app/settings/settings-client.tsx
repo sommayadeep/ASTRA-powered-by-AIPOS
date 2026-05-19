@@ -13,6 +13,11 @@ type SettingsItem = {
   updated_at: string | null;
 };
 
+type ProviderStatus = {
+  default_provider: string;
+  available: Record<string, boolean>;
+};
+
 export default function SettingsClient() {
   const [userId, setUserId] = useState("demo-user");
   const [displayName, setDisplayName] = useState("");
@@ -21,10 +26,32 @@ export default function SettingsClient() {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [settings, setSettings] = useState<SettingsItem | null>(null);
   const [isSaving, setIsSaving] = useState(false);
+  const [providerStatus, setProviderStatus] = useState<ProviderStatus | null>(null);
 
   useEffect(() => {
+    const savedUserId = typeof window !== "undefined" ? localStorage.getItem("aipos_user_id") : null;
+    if (savedUserId) {
+      setUserId(savedUserId);
+      void refreshSettings(savedUserId);
+      void refreshProviderStatus();
+      return;
+    }
     void refreshSettings();
+    void refreshProviderStatus();
   }, []);
+
+  async function refreshProviderStatus() {
+    try {
+      const response = await fetch(`${apiBaseUrl}/providers/status`);
+      if (!response.ok) {
+        return;
+      }
+      const data: ProviderStatus = await response.json();
+      setProviderStatus(data);
+    } catch {
+      setProviderStatus(null);
+    }
+  }
 
   async function refreshSettings(currentUserId = userId) {
     try {
@@ -69,6 +96,10 @@ export default function SettingsClient() {
 
       const data: SettingsItem = await response.json();
       setSettings(data);
+      if (typeof window !== "undefined") {
+        localStorage.setItem("aipos_user_id", data.user_id);
+      }
+      await refreshProviderStatus();
     } finally {
       setIsSaving(false);
     }
@@ -102,6 +133,38 @@ export default function SettingsClient() {
             <option value="openrouter">OpenRouter</option>
             <option value="openai">OpenAI</option>
           </select>
+          <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-neutral-200">
+            <div className="text-xs uppercase tracking-[0.25em] text-neutral-500">Provider availability</div>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {[
+                ["ollama", "Ollama"],
+                ["groq", "Groq"],
+                ["gemini", "Gemini"],
+                ["openrouter", "OpenRouter"],
+                ["openai", "OpenAI"],
+              ].map(([key, label]) => {
+                const available = providerStatus?.available?.[key] ?? false;
+                return (
+                  <span
+                    key={key}
+                    className={`rounded-full px-3 py-1 text-xs ${
+                      available ? "bg-emerald-500/20 text-emerald-200" : "bg-white/5 text-neutral-400"
+                    }`}
+                  >
+                    {label} {available ? "Ready" : "Needs key"}
+                  </span>
+                );
+              })}
+            </div>
+            {providerStatus ? (
+              <p className="mt-3 text-xs text-neutral-400">
+                Default provider: {providerStatus.default_provider}. Keys are set on the server and are required for live
+                responses.
+              </p>
+            ) : (
+              <p className="mt-3 text-xs text-neutral-500">Provider status unavailable.</p>
+            )}
+          </div>
           <select
             value={theme}
             onChange={(event) => setTheme(event.target.value)}

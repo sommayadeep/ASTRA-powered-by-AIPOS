@@ -5,14 +5,10 @@ import { usePathname } from "next/navigation";
 import { useState, type ReactNode } from "react";
 
 const navigationItems = [
-  { href: "/chat", label: "ASTRA Core" },
-  { href: "/documents", label: "ASTRA Docs" },
-  { href: "/tasks", label: "ASTRA Tasks" },
-  { href: "/notes", label: "ASTRA Notes" },
-  { href: "/memory", label: "ASTRA Memory" },
-  { href: "/agents", label: "ASTRA Agents" },
-  { href: "/analytics", label: "ASTRA Intelligence Layer" },
-  { href: "/notifications", label: "Notifications" },
+  { href: "/chat", label: "New Chat" },
+  { href: "/workspace", label: "Workspace" },
+  { href: "/documents", label: "Files" },
+  { href: "/history", label: "History" },
   { href: "/settings", label: "Settings" },
 ];
 
@@ -30,7 +26,7 @@ export default function AppShell({ children }: { children?: ReactNode }) {
         >
           <div className="flex items-center justify-between gap-3 lg:block">
             <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-neutral-500">AIPOS powered by ASTRA</p>
+              <p className="text-xs uppercase tracking-[0.35em] text-neutral-500">ASTRA powered by AIPOS</p>
               <h1 className="mt-2 text-xl font-semibold tracking-tight">ASTRA Workspace</h1>
             </div>
             <button
@@ -63,7 +59,7 @@ export default function AppShell({ children }: { children?: ReactNode }) {
           </nav>
 
           <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-neutral-400">
-            Free-first AI stack with local Ollama and Groq fallback.
+              Free-first AI stack with local Ollama and Groq fallback.
           </div>
         </aside>
 
