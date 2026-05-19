@@ -5,20 +5,20 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 import os
 
-from backend.app.api.auth import router as auth_router
-from backend.app.api.agents import router as agents_router
-from backend.app.api.analytics import router as analytics_router
-from backend.app.api.chat import router as chat_router
-from backend.app.api.documents import router as documents_router
-from backend.app.api.memory import router as memory_router
-from backend.app.api.notes import router as notes_router
-from backend.app.api.notifications import router as notifications_router
-from backend.app.api.providers import router as providers_router
-from backend.app.api.settings import router as settings_router
-from backend.app.api.rag import router as rag_router
-from backend.app.api.tasks import router as tasks_router
-from backend.app.api.health import router as health_router
-from backend.app.services.security import enforce_rate_limit
+from app.api.auth import router as auth_router
+from app.api.agents import router as agents_router
+from app.api.analytics import router as analytics_router
+from app.api.chat import router as chat_router
+from app.api.documents import router as documents_router
+from app.api.memory import router as memory_router
+from app.api.notes import router as notes_router
+from app.api.notifications import router as notifications_router
+from app.api.providers import router as providers_router
+from app.api.settings import router as settings_router
+from app.api.rag import router as rag_router
+from app.api.tasks import router as tasks_router
+from app.api.health import router as health_router
+from app.services.security import enforce_rate_limit
 
 app = FastAPI(title="AIPOS API")
 
