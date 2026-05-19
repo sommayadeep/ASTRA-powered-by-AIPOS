@@ -7,4 +7,5 @@ chmod 700 "$CHROMA_DIR"
 if [ -d "./.chroma" ] && [ "$CHROMA_DIR" != "./.chroma" ]; then
   mv ./.chroma "$CHROMA_DIR" || true
 fi
-exec gunicorn -k uvicorn.workers.UvicornWorker backend.app.main:app --bind 0.0.0.0:$PORT --workers 4
+# Use uvicorn directly for Render (works reliably in the build environment)
+exec uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --workers 1
