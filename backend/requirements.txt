@@ -12,3 +12,4 @@ chromadb
 sentence-transformers
 pypdf
 python-docx
+gunicorn
