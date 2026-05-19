@@ -59,5 +59,4 @@ AIPOS is a production-grade agentic AI productivity platform for chat, documents
 - `DEMO_SEED=1` seeds tasks, notes, memories, and notifications when using `bash run-dev.sh`.
 - Set `DEMO_SEED=0` to start with empty local workspace data.
 # ASTRA-powered-by-AIPOS
-# ASTRA-powered-by-AIPOS
-# ASTRA-powered-by-AIPOS
+
