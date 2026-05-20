@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState, ChangeEvent, useEffect } from "react";
+import { FormEvent, useState, ChangeEvent, useEffect, Dispatch, SetStateAction } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { motion, AnimatePresence } from "framer-motion";
@@ -14,7 +14,7 @@ export type Message = {
 
 type Props = {
   messages: Message[];
-  setMessages: (m: Message[]) => void;
+  setMessages: Dispatch<SetStateAction<Message[]>>;
 };
 
 export default function ChatClient({ messages, setMessages }: Props) {
