@@ -80,7 +80,7 @@ export default function AnalyticsClient() {
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
               {Object.entries(analytics.productivity).map(([label, value]) => (
                 <div key={label} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
-                  <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">{label.replaceAll("_", " ")}</p>
+                  <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">{label.split("_").join(" ")}</p>
                   <p className="mt-3 text-2xl font-semibold text-white">{value}</p>
                 </div>
               ))}
