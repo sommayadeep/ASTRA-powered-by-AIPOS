@@ -133,7 +133,7 @@ export default function ChatPage() {
                   onClick={() => {
                     // start a new user message asking about this document
                     const q = `ASTRA, summarize the document: ${d.name}`;
-                    const next = [...messages, { role: "user", content: q }];
+                    const next: Message[] = [...messages, { role: "user", content: q }];
                     setMessages(next);
                   }}
                   className="w-full text-left rounded-md px-3 py-2 text-sm text-neutral-200 hover:bg-white/5"
